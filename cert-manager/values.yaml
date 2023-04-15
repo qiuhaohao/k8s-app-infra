@@ -1,0 +1,9 @@
+acme_issuer_email: admin@qiu.family
+
+########################
+# cert-manager  subchart
+########################
+
+# CDRs installed as part of CDR application
+cert-manager:
+  installCRDs: false
