@@ -1,6 +1,6 @@
 gitops:
   repo: https://github.com/qiuhaohao/k8s-app-infra
-  revision: master
+  revision: main
 
 # List of application corresponding to different sync waves
 apps:
