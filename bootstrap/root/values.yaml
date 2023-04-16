@@ -1,0 +1,77 @@
+gitops:
+  repo: https://github.com/qiuhaohao/k8s-app-infra
+  revision: master
+
+# List of application corresponding to different sync waves
+apps:
+    # CDRs App
+  - name: crds
+    namespace: default
+    path: bootstrap/crds
+    syncWave: 0
+    # External Secrets Operator
+  - name: cert-manager
+    namespace: cert-manager
+    path: infra/cert-manager
+    syncWave: 1
+    # Traefik Ingress Controller
+  - name: traefik
+    namespace: traefik
+    path: infra/traefik
+    syncWave: 2
+    helm:
+      # skip installation traefik CDRs
+      skipCrds: true
+    # CSI External Snapshotter
+  # - name: csi-external-snapshotter
+  #   namespace: kube-system
+  #   path: infra/csi-external-snapshotter
+  #   syncWave: 4
+  #   # Longhorn Distributed Block Storage
+  # - name: longhorn
+  #   namespace: longhorn-system
+  #   path: infra/longhorn-system
+  #   syncWave: 5
+  #   # Minio Object Storage
+  # - name: minio
+  #   namespace: minio
+  #   path: infra/minio
+  #   syncWave: 5
+  #   # Velero Backup
+  # - name: velero
+  #   namespace: velero
+  #   path: infra/velero
+  #   syncWave: 5
+  #   # Logging: Loki and EFK stack
+  # - name: logging
+  #   namespace: logging
+  #   path: infra/logging
+  #   syncWave: 6
+  #   # Kube-prometheus-stack
+  # - name: monitoring
+  #   namespace: monitoring
+  #   path: infra/monitoring
+  #   syncWave: 6
+  #   helm:
+  #     # skip installation kube-prometheus-stack CDRs
+  #     skipCrds: true
+  #   # Linkerd-viz
+  # - name: linkerd-viz
+  #   namespace: linkerd-viz
+  #   path: infra/linkerd-viz
+  #   syncWave: 6
+  #   # Tracing: Tempo
+  # - name: tracing
+  #   namespace: tracing
+  #   path: infra/tracing
+  #   syncWave: 6
+  #   # Linkerd-jaeger
+  # - name: linkerd-jaeger
+  #   namespace: linkerd-jaeger
+  #   path: infra/linkerd-jaeger
+  #   syncWave: 6
+  #   # Argo CD App
+  # - name: argocd
+  #   namespace: argocd
+  #   path: argocd/bootstrap/argocd
+  #   syncWave: 6
