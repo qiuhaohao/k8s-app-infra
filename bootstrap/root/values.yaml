@@ -4,16 +4,26 @@ gitops:
 
 # List of application corresponding to different sync waves
 apps:
-    # CDRs App
+  # CDRs App
   - name: crds
     namespace: default
     path: bootstrap/crds
     syncWave: 0
-    # External Secrets Operator
+  # External Secrets Operator
   - name: cert-manager
     namespace: cert-manager
     path: infra/cert-manager
     syncWave: 1
+  # CSI External Snapshotter
+  - name: csi-external-snapshotter
+    namespace: kube-system
+    path: infra/csi-external-snapshotter
+    syncWave: 2
+  # Longhorn Distributed Block Storage
+  - name: longhorn
+    namespace: longhorn-system
+    path: infra/longhorn-system
+    syncWave: 3
     # Traefik Ingress Controller
   # - name: traefik
   #   namespace: traefik
@@ -22,16 +32,8 @@ apps:
   #   helm:
   #     # skip installation traefik CDRs
   #     skipCrds: true
-    # CSI External Snapshotter
-  # - name: csi-external-snapshotter
-  #   namespace: kube-system
-  #   path: infra/csi-external-snapshotter
-  #   syncWave: 4
-  #   # Longhorn Distributed Block Storage
-  # - name: longhorn
-  #   namespace: longhorn-system
-  #   path: infra/longhorn-system
-  #   syncWave: 5
+
+
   #   # Minio Object Storage
   # - name: minio
   #   namespace: minio
