@@ -15,13 +15,13 @@ apps:
     path: infra/cert-manager
     syncWave: 1
     # Traefik Ingress Controller
-  - name: traefik
-    namespace: traefik
-    path: infra/traefik
-    syncWave: 2
-    helm:
-      # skip installation traefik CDRs
-      skipCrds: true
+  # - name: traefik
+  #   namespace: traefik
+  #   path: infra/traefik
+  #   syncWave: 2
+  #   helm:
+  #     # skip installation traefik CDRs
+  #     skipCrds: true
     # CSI External Snapshotter
   # - name: csi-external-snapshotter
   #   namespace: kube-system
