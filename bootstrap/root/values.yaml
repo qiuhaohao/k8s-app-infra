@@ -14,6 +14,14 @@ apps:
     namespace: cert-manager
     path: infra/cert-manager
     syncWave: 1
+  # Traefik Ingress Controller
+  - name: traefik
+    namespace: traefik
+    path: infra/traefik
+    syncWave: 1
+    helm:
+      # skip installation traefik CDRs
+      skipCrds: true
   # CSI External Snapshotter
   - name: csi-external-snapshotter
     namespace: kube-system
@@ -24,14 +32,11 @@ apps:
     namespace: longhorn-system
     path: infra/longhorn-system
     syncWave: 3
-    # Traefik Ingress Controller
-  # - name: traefik
-  #   namespace: traefik
-  #   path: infra/traefik
-  #   syncWave: 2
-  #   helm:
-  #     # skip installation traefik CDRs
-  #     skipCrds: true
+  # Longhorn Distributed Block Storage
+  - name: vault
+    namespace: vault
+    path: infra/vault
+    syncWave: 4
 
 
   #   # Minio Object Storage

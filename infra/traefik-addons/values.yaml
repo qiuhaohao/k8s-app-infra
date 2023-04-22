@@ -1,0 +1,22 @@
+# Dashboard Ingress configuration
+# helm chart creates dashboard ingress-route but it does not support tls specification yet
+# https://github.com/traefik/traefik-helm-chart/issues/763
+# Creating with specific template
+ingress:
+  enabled: true
+  host: traefik.infra.qiu.family
+  # configure cert-manager issuer
+  certmanager:
+    # tlsIssuer=letsecrypt to generate valid TLS certficiate using IONOS API
+    # tlsIssuer=ca to generate a CA-signed certificate (not valid)
+    tlsIssuer: letsencrypt
+  # Enabling traefik basic authorization, reusing global middleware created for Traefik
+  basicAuth:
+    enable: true
+    middlewareName: basic-auth
+    middlewareNamespace: traefik
+
+# Prometheus servicemonitor configuration
+serviceMonitor:
+  enable: true
+  release: monitoring

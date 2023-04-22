@@ -1,0 +1,6 @@
+# Ingress configuration
+ingress:
+  host: vault.infra.qiu.family
+  # configure cert-manager issuer
+  certmanager:
+    tlsIssuer: letsencrypt
